@@ -2,6 +2,7 @@ import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { UsersService } from './users.service';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
+import { User } from '@prisma/client';
 
 @Resolver('User')
 export class UsersResolver {
@@ -13,13 +14,13 @@ export class UsersResolver {
   }
 
   @Query('users')
-  findAll() {
-    return this.usersService.findAll();
+  findAll(): Promise<User[]> {
+    return this.usersService.findAll({});
   }
 
   @Query('user')
-  findOne(@Args('id') id: number) {
-    return this.usersService.findOne(id);
+  findOne(@Args('id') id: string): Promise<User> {
+    return this.usersService.findOne({ id: Number(id) });
   }
 
   @Mutation('updateUser')
