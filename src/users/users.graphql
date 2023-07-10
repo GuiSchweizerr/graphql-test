@@ -12,6 +12,7 @@ input CreateUserInput {
   name: String
   email: String
   role: String
+  password: String
 }
 
 input UpdateUserInput {
@@ -19,6 +20,7 @@ input UpdateUserInput {
   name: String
   email: String
   role: String
+  password: String
 }
 
 type Query {

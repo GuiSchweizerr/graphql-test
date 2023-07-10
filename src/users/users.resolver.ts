@@ -3,6 +3,7 @@ import { UsersService } from './users.service';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { User } from '@prisma/client';
+import { UseGuards } from '@nestjs/common';
 
 @Resolver('User')
 export class UsersResolver {

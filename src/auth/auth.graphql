@@ -1,0 +1,26 @@
+type Auth {
+  # Example field (placeholder)
+  email: String
+  password: String
+  refreshToken: String
+  expiresIn: String
+}
+
+input CreateAuthInput {
+  # Example field (placeholder)
+  email: String
+  password: String
+}
+
+# type Query {
+#   auth: [Auth]!
+#   auth(id: Int!): Auth
+# }
+
+type Mutation {
+  createAuth(createAuthInput: CreateAuthInput!): Auth!
+  login(createAuthInput: CreateAuthInput!): Auth!
+
+  # updateAuth(updateAuthInput: UpdateAuthInput!): Auth!
+  # removeAuth(id: Int!): Auth
+}
